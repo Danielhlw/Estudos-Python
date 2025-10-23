@@ -24,21 +24,9 @@
         "cidade": "Recife"
     },
     {
-        "id": 4,
-        "nome": "Ana",
-        "idade": 28,
-        "cidade": "Recife"
-    },
-    {
-        "id": 4,
-        "nome": "Ana",
-        "idade": 28,
-        "cidade": "Recife"
-    },
-    {
-        "id": 4,
-        "nome": "Ana",
-        "idade": 28,
-        "cidade": "Recife"
+        "id": 5,
+        "nome": "Carlos",
+        "idade": 35,
+        "cidade": "Campinas"
     }
 ]
