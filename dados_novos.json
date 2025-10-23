@@ -1,0 +1,13 @@
+{
+    "nome": "Daniel",
+    "idade": 22,
+    "cursos": [
+        "Python",
+        "SQL"
+    ],
+    "endereco": {
+        "cidade": "São Paulo",
+        "estado": "SP"
+    },
+    "ativo": true
+}
