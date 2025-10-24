@@ -4,7 +4,15 @@ from datetime import datetime
 
 # 1 - criação da pasta de trabalho
 BASE = Path("data_pipeline")
+LOG = BASE / "pipeline.log"
 BASE.mkdir(exist_ok=True)
+
+def log(msg):
+    # Função simples para registrar eventos no arquivo de log
+    hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with LOG.open("a", encoding="utf-8") as f:
+        f.write(f"[{hora}] {msg}\n")
+    print(f"[LOG] {msg}")  
 
 # 2 - dataset + timestamp 
 usuarios = [
@@ -20,7 +28,8 @@ arquivo_saida = BASE / f"usuarios_{timestamp}.json"
 
 with arquivo_saida.open("w", encoding="utf-8") as f:
     json.dump(usuarios, f, indent=4, ensure_ascii=False)
-print(f"salvo: {arquivo_saida}")
+
+log(f"Novo arquivo salvo: {arquivo_saida.name} ({len(usuarios)} registros)")
 
 # 3 - listar arquivos JSON da pasta (ordenados por nome/tempo)
 jsons = sorted(BASE.glob("usuarios_*.json"))
@@ -34,12 +43,12 @@ if jsons:
     try:
         with mais_recente.open("r", encoding="utf-8") as f:
             dados = json.load(f)
-        print(f"\n carregado: {mais_recente.name}")
+        log(f"Arquivo carregado com sucesso: {mais_recente.name}")
         print(f"registros: {len(dados)}")
         print("amostra (nome > cidade):")
         for u in dados[:3]:
             print(f" • {u['nome']} → {u['cidade']}")
     except json.JSONDecodeError as e:
-        print("JSON inválido:", e)
+        log(f"Erro ao ler JSON ({mais_recente.name}): {e}")
 else:
-    print("nenhum arquivo JSON encontrado em", BASE)
+    log("Nenhum arquivo JSON encontrado na pasta.")
