@@ -1,0 +1,7 @@
+É uma biblioteca focada em velocidade e eficiência para cálculos matemáticos
+e manipulação de dados numéricos com python.
+
+É a base de várias outras bibliotecas de dados, como pandas, scikit-learn, pytorch...
+
+Vantagem principal:
+- Armazenamento de dados de forma contínua na memória, administrando de uma forma boa.
