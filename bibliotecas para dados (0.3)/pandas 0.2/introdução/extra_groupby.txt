@@ -1,0 +1,57 @@
+extra_groupby.txt
+
+------------------------------------
+O que fica dentro e fora do groupby()
+------------------------------------
+
+Sintaxe geral:
+df.groupby("coluna_chave")["coluna_valor"].função()
+
+1) Dentro dos parênteses ( )
+   - Define como os dados serão agrupados (as categorias ou chaves).
+   - Exemplo: "agrupando por loja".
+   - Exemplo: df.groupby("loja")
+
+2) Dentro dos colchetes [ ]
+   - Define qual coluna será usada para cálculo ou análise.
+   - Exemplo: "somar os valores por loja".
+   - Exemplo: df.groupby("loja")["valor"]
+
+3) Após a função ( )
+   - Define O que será feito com cada grupo.
+   - Pode ser sum(), mean(), count(), max(), min(), etc.
+   - Exemplo: df.groupby("loja")["valor"].sum()
+
+------------------------------------
+Exemplo prático
+------------------------------------
+
+vendas.groupby("loja")["valor"].sum()
+
+1. Agrupa a tabela por loja.
+2. Seleciona a coluna valor.
+3. Soma os valores de cada loja.
+
+Resultado:
+loja
+Assis         1200
+Curitiba      1200
+São Paulo      950
+
+------------------------------------
+Variações úteis
+------------------------------------
+
+# Agrupar por múltiplas colunas
+df.groupby(["loja", "vendedor"])["valor"].sum()
+
+# Aplicar múltiplas funções ao mesmo tempo
+df.groupby("loja")["valor"].agg(["sum", "mean", "max"])
+
+------------------------------------
+Resumo rápido
+------------------------------------
+
+Parênteses ( ) → definem os grupos (quem agrupa)
+Colchetes [ ]  → definem a coluna de valor (sobre o que operar)
+Função ( )     → define o cálculo (o que fazer com cada grupo)

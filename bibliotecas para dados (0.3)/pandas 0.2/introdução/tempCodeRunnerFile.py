@@ -1,1 +1,1 @@
-print(df.describe()) # estatísticas (apenas números)
+lojita
