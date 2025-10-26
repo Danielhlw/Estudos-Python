@@ -1,2 +1,0 @@
-É basicamente uma biblioteca python feita para analisar e manupular dados
-tabulares por meio de dataframes, ou seja, tabelas com linhas e colunas.
