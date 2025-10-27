@@ -119,10 +119,12 @@ s3://dados-empresa/
 ----
 
 .Benefícios principais
-- Alta disponibilidade e durabilidade (11 noves — 99,999999999%);
+- Alta disponibilidade e durabilidade (11 noves - 99,999999999%);
 - Integração com ferramentas como PySpark, Athena, Glue e Redshift;
 - Custo extremamente baixo por gigabyte armazenado;
-- Escalabilidade praticamente ilimitada.
+- Escalabilidade praticamente ilimitada;
+- Extra: O Glue facilita a descoberta, preparação, movimentação e combinação de dados para análise;
+- Extra: O Athena permite consultas SQL diretamente no S3, sem necessidade de mover os dados.
 
 == A arquitetura Lakehouse
 
