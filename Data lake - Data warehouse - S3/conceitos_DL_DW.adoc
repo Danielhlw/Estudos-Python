@@ -136,7 +136,8 @@ Em vez de manter ambientes separados, o Lakehouse unifica armazenamento e análi
 - Armazenamento em formato de Data Lake (tipo amazon S3, que é o coração);
 - Capacidade de realizar consultas SQL diretamente sobre os arquivos;
 - Controle de versões e *transactions ACID* (Atomicidade, Consistência, Isolamento e Durabilidade);
-- Compatibilidade com formatos de alto desempenho, como Parquet e Delta.
+- Compatibilidade com formatos de alto desempenho, como Parquet e Delta;
+- Boa governança e segurança dos dados.
 
 .Frameworks mais utilizados
 - *Delta Lake* (Databricks, azure)
@@ -145,10 +146,10 @@ Em vez de manter ambientes separados, o Lakehouse unifica armazenamento e análi
 
 == Referências
 
-- link:https://aws.amazon.com/pt/what-is/data-lake/[O que é um Data Lake? — Introdução aos data lakes e análises] (Amazon Web Services)  
+- link:https://aws.amazon.com/pt/what-is/data-lake/[O que é um Data Lake? - Introdução aos data lakes e análises] (Amazon Web Services)  
 - link:https://kondado.com.br/blog/blog/2023/03/08/o-que-e-um-data-warehouse/[O que é um Data Warehouse? Entenda a sua importância] (Kondado)  
 - link:https://www.treinaweb.com.br/blog/o-que-e-aws-s3[O que é o Amazon S3?] (TreinaWeb)  
 - link:https://kondado.com.br/blog/blog/2023/03/14/data-lake-o-que-e-e-para-que-serve/[Data Lake: o que é e para que serve?] (Kondado)  
 - link:https://www.databricks.com/br/glossary/data-lakehouse[Data Lakehouse: uma arquitetura de dados que combina Data Lake e Data Warehouse] (Databricks)  
-- link:https://aws.amazon.com/pt/what-is/data-warehouse/[O que é um Data Warehouse? — Introdução aos data warehouses e análises] (Amazon Web Services)
+- link:https://aws.amazon.com/pt/what-is/data-warehouse/[O que é um Data Warehouse? - Introdução aos data warehouses e análises] (Amazon Web Services)
 
