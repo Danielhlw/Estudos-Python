@@ -1,0 +1,152 @@
+= Data Lake, Data Warehouse, Amazon S3 e Lakehouse
+:author: Daniel Ferreira
+:toc:
+:toc-title: Sumário
+:icons: font
+:sectnums:
+
+== O que é um Data Lake
+
+Um *Data Lake* é um repositório central que armazena dados em seu formato bruto, ou seja, antes de qualquer transformação ou estruturação. Ele pode conter praticamente qualquer tipo de dado: tabelas CSV, arquivos JSON, logs, imagens, vídeos ou textos.  
+A ideia é guardar tudo, mesmo que ainda não exista um uso imediato definido.
+
+.Características principais
+|===
+|Característica |Descrição
+
+|Formato dos dados
+|Bruto (*raw*), sem padronização
+
+|Custo
+|Baixo - O armazenamento geralmente é feito em serviços como o Amazon S3
+
+|Objetivo
+|Centralizar todos os dados, permitindo futuras análises e transformações (ETL completo)
+
+|Usuários típicos
+|Engenheiros e cientistas de dados
+
+|Exemplo prático
+|Organização em camadas: *bronze*, *silver* e *gold*
+|===
+
+.Exemplo de estrutura no S3
+[source,text]
+----
+s3://empresa-data-lake/
+ ┣ bronze/   > Dados brutos de APIs e sistemas externos
+ ┣ silver/   > Dados limpos e padronizados
+ ┗ gold/     > Dados prontos para relatórios e BI
+----
+
+== O que é um Data Warehouse
+
+O *Data Warehouse (DW)* é um ambiente estruturado, projetado para armazenar dados tratados e prontos para consulta.  
+Enquanto o Data Lake guarda tudo, o DW contém apenas o que é relevante para análises e relatórios de negócio.
+
+.Características principais
+|===
+|Característica |Descrição
+
+|Formato dos dados
+|Estruturado (tabelas relacionais)
+
+|Custo
+|Médio a alto, devido ao processamento e à otimização para consultas
+
+|Objetivo
+|Suporte à tomada de decisão e geração de relatórios
+
+|Usuários típicos
+|Analistas de dados e profissionais de BI
+
+|Exemplo real
+|Amazon Redshift, Google BigQuery, Snowflake
+|===
+
+.Exemplo de estrutura no DW
+[source,text]
+----
+DW (Redshift)
+ ┣ tabela: vendas
+ ┣ tabela: clientes
+ ┣ tabela: produtos
+ ┗ tabela: faturamento_mensal
+----
+
+== Diferenças principais entre Data Lake e Data Warehouse
+
+Apesar de complementares, Data Lake e Data Warehouse têm propósitos diferentes.  
+O Data Lake é voltado a *flexibilidade* e volume. O Data Warehouse, é voltado a *organização* e velocidade de consulta (considerando que os dados já estão tratados, vindo da camada *ouro*).
+
+|===
+|Aspecto |Data Lake |Data Warehouse
+
+|Tipo de dados
+|Brutos, semiestruturados ou não estruturados
+|Estruturados
+
+|Custo
+|Mais baixo
+|Mais alto
+
+|Armazenamento
+|Escalável (como o S3)
+|Limitado à capacidade do banco
+
+|Uso típico
+|Ciência de dados, aprendizado de máquina
+|Relatórios e análises de negócio
+
+|Modelo de leitura
+|*Schema-on-read* — o formato é definido na leitura
+|*Schema-on-write* — o formato é definido na gravação
+|===
+
+== O papel da Amazon S3
+
+O *Amazon S3 (Simple Storage Service)* é um serviço de armazenamento de objetos que serve de base para muitos Data Lakes modernos, é o coração dos dados na amazon.  
+Ele organiza os dados em *buckets* (semelhantes a pastas) e permite o acesso a praticamente qualquer tipo de arquivo.
+
+.Exemplo de organização
+[source,text]
+----
+s3://dados-empresa/
+ ┣ vendas/2025/01/vendas_2025_01.csv
+ ┣ clientes/clientes_2025_01.json
+ ┣ logs/servidor.log
+ ┗ relatorios/financeiro_2025_01.parquet
+----
+
+.Benefícios principais
+- Alta disponibilidade e durabilidade (11 noves — 99,999999999%);
+- Integração com ferramentas como PySpark, Athena, Glue e Redshift;
+- Custo extremamente baixo por gigabyte armazenado;
+- Escalabilidade praticamente ilimitada.
+
+== A arquitetura Lakehouse
+
+O *Lakehouse* surge como uma "evolução" da arquitetura de dados.  
+Ele combina a flexibilidade do Data Lake com a estrutura e confiabilidade do Data Warehouse.  
+Em vez de manter ambientes separados, o Lakehouse unifica armazenamento e análise no mesmo local.
+
+.Principais vantagens
+- Armazenamento em formato de Data Lake (tipo amazon S3, que é o coração);
+- Capacidade de realizar consultas SQL diretamente sobre os arquivos;
+- Controle de versões e *transactions ACID* (Atomicidade, Consistência, Isolamento e Durabilidade);
+- Compatibilidade com formatos de alto desempenho, como Parquet e Delta.
+
+.Frameworks mais utilizados
+- *Delta Lake* (Databricks, azure)
+- *Apache Iceberg*
+- *Apache Hudi*
+
+== Referências
+
+- link:https://aws.amazon.com/pt/what-is/data-lake/[O que é um Data Lake? — Introdução aos data lakes e análises] (Amazon Web Services)  
+- link:https://kondado.com.br/blog/blog/2023/03/08/o-que-e-um-data-warehouse/[O que é um Data Warehouse? Entenda a sua importância] (Kondado)  
+- link:https://www.treinaweb.com.br/blog/o-que-e-aws-s3[O que é o Amazon S3?] (TreinaWeb)  
+- link:https://kondado.com.br/blog/blog/2023/03/14/data-lake-o-que-e-e-para-que-serve/[Data Lake: o que é e para que serve?] (Kondado)  
+- link:https://www.databricks.com/br/glossary/data-lakehouse[Data Lakehouse: uma arquitetura de dados que combina Data Lake e Data Warehouse] (Databricks)  
+- link:https://aws.amazon.com/pt/what-is/data-warehouse/[O que é um Data Warehouse? — Introdução aos data warehouses e análises] (Amazon Web Services)
+
