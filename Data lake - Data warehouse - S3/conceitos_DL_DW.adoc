@@ -46,7 +46,7 @@ Enquanto o Data Lake guarda tudo, o DW contém apenas o que é relevante para an
 
 .Características principais
 |===
-|Característica |Descrição
+|Característica | Descrição
 
 |Formato dos dados
 |Estruturado (tabelas relacionais)
@@ -98,9 +98,9 @@ O Data Lake é voltado a *flexibilidade* e volume. O Data Warehouse, é voltado 
 |Ciência de dados, aprendizado de máquina
 |Relatórios e análises de negócio
 
-|Modelo de leitura
-|*Schema-on-read* — o formato é definido na leitura
-|*Schema-on-write* — o formato é definido na gravação
+| Modelo de leitura
+| *Schema-on-read* - o formato é definido na leitura
+|*Schema-on-write* - o formato é definido na gravação
 |===
 
 == O papel da Amazon S3
