@@ -1,0 +1,5 @@
+O pyspark é a interface do apache spark, só que para python.
+Características:
+    - Trabalha com grandes volumes de dados;
+    - Executa operações de forma paralela e distribuida (clusters, bom para trabalhar em container)
+    - ETL, análises e machine learning em escala de produção.
