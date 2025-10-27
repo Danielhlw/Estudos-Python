@@ -1,0 +1,6 @@
+id,produto,quantidade,preco_total,data_venda
+1,Notebook,2,7000,2025-01-10
+2,Mouse,5,250,2025-01-12
+3,Teclado,3,450,2025-01-15
+4,Monitor,1,1200,2025-01-20
+5,Headset,4,600,2025-01-25
