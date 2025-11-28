@@ -26,12 +26,4 @@ print("Colunas:", list(df.columns))
 
 # Estatística em múltiplas colunas de uma vez ---
 print("\n Média de idade e salário:")
-print(df[["idade", "salario"]].mean())
-
-# Estatísticas específicas em múltiplas colunas ---
-print(f"\n Máximo de idade e salário: {df["idade"].max()}, {df["salario"].max()} ")
-
-# Combinação de filtro + estatística ---
-media_salario = df["salario"].mean()
-print("\n Funcionários com salário acima da média:")
-print(df[df["salario"] > media_salario])
+print(df["salario"])
