@@ -88,6 +88,7 @@ O Data Catalog funciona como um "catálogo" de metadados - ele não armazena os 
 - O Crawler precisa de permissões para acessar o S3 e criar tabelas no Glue Catalog
 - Crie uma nova IAM Role ou selecione uma existente
 - Se criar nova, use o prefixo sugerido (ex: `AWSGlueServiceRole-`)
+- A IAM criada deve conter uma política com "GetObject" e "Listbucket", permitindo acesso e listagem.
 
 #### 4.4. Output (Saída - Database)
 - O Crawler precisa saber onde criar a tabela com os metadados
