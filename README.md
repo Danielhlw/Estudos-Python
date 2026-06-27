@@ -1,1 +1,2 @@
-# Apenas um repositório para por meus estudos acerca de python.
+# Repositório focado em colocar meus estudos sobre python, aws e engenharia de dados no geral.
+
